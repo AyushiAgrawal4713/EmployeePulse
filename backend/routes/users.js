@@ -43,13 +43,9 @@ async (req,res)=>{
 
  try{
 
-   const response =
-   await axios.get(
-
-   "http://127.0.0.1:8000/engagement-score"
-
-   );
-
+   const response = await axios.get(
+  `${process.env.PYTHON_API_URL}/engagement-score`
+);
    res.json(
    response.data
    );
@@ -108,7 +104,7 @@ router.get("/recommendation", async (req, res) => {
     try {
 
         const response = await axios.get(
-            "http://127.0.0.1:8000/recommendation"
+            `${process.env.PYTHON_API_URL}/recommendation`
         );
 
         res.json(response.data);
